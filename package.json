@@ -1,0 +1,34 @@
+{
+  "name": "safe-timers",
+  "version": "1.0.0",
+  "description": "Timers with near-infinite duration support",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape test/*.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizcorp/safe-timers.git"
+  },
+  "keywords": [
+    "setTimeout",
+    "setInterval",
+    "timer",
+    "interval",
+    "timers",
+    "intervals"
+  ],
+  "author": "Ron Korving <rkorving@wizcorp.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wizcorp/safe-timers/issues"
+  },
+  "homepage": "https://github.com/wizcorp/safe-timers#readme",
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1"
+  }
+}
