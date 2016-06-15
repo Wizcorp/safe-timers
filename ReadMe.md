@@ -3,11 +3,11 @@
 ## About
 
 Q: What's this all about? Aren't JavaScript timers safe?
-A: Long story short: they're a bit broken. This module unbreaks it.
+A: Long story short: they're a bit broken. This module unbreaks them.
 
-Whether it's by spec, or by accident, **all** major browsers and Node.js all limit the interval a setTimeout can accept
-to a 32 bit signed integer. What that means in essence is that a timeout can never last longer than 24.85 days. Long
-enough, right?
+Whether it's by spec, or by accident, **all** major browsers and Node.js limit the interval a setTimeout can accept to a
+32 bit signed integer. What that means in essence is that a timeout can never last longer than 24.85 days. Long enough,
+right?
 
 The problem is that:
 
