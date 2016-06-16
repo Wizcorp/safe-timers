@@ -1,10 +1,10 @@
 {
   "name": "safe-timers",
   "repo": "wizcorp/safe-timers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Timers with near-infinite duration support",
   "scripts": [
-    "index.js",
+    "index.js"
   ],
   "main": "index.js"
 }
