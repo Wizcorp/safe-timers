@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tape test/*.js | tap-spec"
+    "test": "tape test/*.js | tap-spec",
+    "cov": "nyc npm run test && nyc report --reporter=lcov"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/Wizcorp/safe-timers#readme",
   "devDependencies": {
+    "nyc": "^11.0.2",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1"
   }
