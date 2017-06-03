@@ -3,12 +3,16 @@
   "version": "1.0.1",
   "description": "Timers with near-infinite duration support",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "component.json"
+  ],
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "tape test/*.js | tap-spec",
-    "cov": "nyc npm run test && nyc report --reporter=lcov"
+    "cov": "nyc npm test && nyc report --reporter=lcov"
   },
   "repository": {
     "type": "git",
