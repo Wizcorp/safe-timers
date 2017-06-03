@@ -1,32 +1,32 @@
 const test = require('tape');
 const timers = require('..');
 
-test('setTimeout', function (t) {
+test('setTimeoutAt', function (t) {
 	const originalMaxInterval = timers.maxInterval;
 
 	t.test('Crossing the maxInterval border', function (t) {
 		timers.maxInterval = 2;
 
-		timeout = timers.setTimeout(function (a, b) {
+		timeout = timers.setTimeoutAt(function (a, b) {
 			t.pass('timeout fired');
 			t.equal(a, 1);
 			t.equal(b, 2);
 			timers.maxInterval = originalMaxInterval;
 			t.end();
-		}, 30, 1, 2);
+		}, Date.now() + 30, 1, 2);
 	});
 
 	t.test('Not crossing the maxInterval border', function (t) {
-		timers.setTimeout(function () {
+		timers.setTimeoutAt(function () {
 			t.pass('timeout fired');
 			t.end();
-		}, 5);
+		}, Date.now() + 5);
 	});
 
 	t.test('clear()', function (t) {
-		const timeout = timers.setTimeout(function () {
+		const timeout = timers.setTimeoutAt(function () {
 			t.end('TimeOut fired despite clear()');
-		}, 0);
+		}, Date.now() + 0);
 
 		timeout.clear();
 
