@@ -61,7 +61,7 @@ function Interval(cb, args, thisArg) {
 
 	function callback() {
 		that.timeout.fireIn(that.interval);
-		cb();
+		cb.apply(that.timeout.thisArg, that.timeout.args);
 	}
 
 	this.timeout = new Timeout(callback, args, thisArg);

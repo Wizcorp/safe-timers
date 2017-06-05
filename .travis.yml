@@ -1,0 +1,10 @@
+sudo: false
+language: node_js
+node_js:
+  - '4'
+  - '6'
+  - '8'
+script:
+  - npm run cov
+after_script:
+  - npm i codecov && codecov
