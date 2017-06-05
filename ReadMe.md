@@ -31,7 +31,7 @@ Calls `callback` after at least `interval` milliseconds have passed. All argumen
 passed to the callback once it gets invoked. Returns a `Timer` instance.
 
 ```js
-const setTimeout = require('safetimers').setTimeout;
+const setTimeout = require('safe-timers').setTimeout;
 
 setTimeout(function (msg) {
   console.log(msg);
@@ -44,7 +44,7 @@ Calls `callback` when our clock reaches the given `timestamp` (in milliseconds).
 `interval` will be passed to the callback once it gets invoked. Returns a `Timer` instance.
 
 ```js
-const setTimeoutAt = require('safetimers').setTimeoutAt;
+const setTimeoutAt = require('safe-timers').setTimeoutAt;
 
 setTimeoutAt(function (msg) {
   console.log(msg);
@@ -57,7 +57,7 @@ Calls `callback` after at least every `interval` milliseconds. All arguments pas
 to the callback when it gets invoked. Returns an `Interval` instance.
 
 ```js
-const setInterval = require('safetimers').setInterval;
+const setInterval = require('safe-timers').setInterval;
 
 setInterval(function (msg) {
   console.log(msg);
@@ -70,7 +70,7 @@ The response from `safetimers.setTimeout[At]` and `safetimers.setInterval` are `
 respectively. To cancel a timer or interval, you can call `clear` on it.
 
 ```js
-const setTimeout = require('safetimers').setTimeout;
+const setTimeout = require('safe-timers').setTimeout;
 
 const timer = setTimeout(function (msg) {
   console.log(msg); // this will never show
