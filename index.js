@@ -59,10 +59,10 @@ Timeout.prototype.clear = function () {
 function Interval(cb, args, thisArg) {
 	var that = this;
 
-	function callback() {
+	var callback = function () {
 		that.timeout.fireIn(that.interval);
-		cb();
-	}
+		cb.apply(that.timeout.thisArg, that.timeout.args);
+	};
 
 	this.timeout = new Timeout(callback, args, thisArg);
 	this.interval = null;
