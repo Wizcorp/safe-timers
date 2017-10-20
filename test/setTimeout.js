@@ -8,8 +8,9 @@ test('setTimeout', function (t) {
 		timers.maxInterval = 2;
 
 		timeout = timers.setTimeout(function () {
-			t.pass('timeout fired');
 			timers.maxInterval = originalMaxInterval;
+
+			t.pass('timeout fired');
 			t.end();
 		}, 30);
 	});
@@ -23,7 +24,7 @@ test('setTimeout', function (t) {
 
 	t.test('clear()', function (t) {
 		const timeout = timers.setTimeout(function () {
-			t.end('TimeOut fired despite clear()');
+			t.end('timeout fired despite clear()');
 		}, 0);
 
 		timeout.clear();
