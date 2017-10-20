@@ -8,19 +8,34 @@ test('setInterval', function (t) {
 		timers.maxInterval = 2;
 
 		const interval = timers.setInterval(function () {
-			t.pass('interval fired');
-			interval.clear();
 			timers.maxInterval = originalMaxInterval;
+			interval.clear();
+
+			t.pass('interval fired');
 			t.end();
 		}, 30);
 	});
 
 	t.test('Not crossing the maxInterval border', function (t) {
 		const interval = timers.setInterval(function () {
-			t.pass('interval fired');
 			interval.clear();
+
+			t.pass('interval fired');
 			t.end();
 		}, 5);
+	});
+
+	t.test('clear()', function (t) {
+		const interval = timers.setInterval(function () {
+			t.end('interval fired despite clear()');
+		}, 0);
+
+		interval.clear();
+
+		setTimeout(function () {
+			t.pass('interval did not fire');
+			t.end();
+		}, 10);
 	});
 
 	t.end();
