@@ -1,3 +1,5 @@
+'use strict';
+
 const test = require('tape');
 const timers = require('..');
 
@@ -7,7 +9,7 @@ test('setTimeout', function (t) {
 	t.test('Crossing the maxInterval border', function (t) {
 		timers.maxInterval = 2;
 
-		timeout = timers.setTimeout(function () {
+		timers.setTimeout(function () {
 			timers.maxInterval = originalMaxInterval;
 
 			t.pass('timeout fired');
@@ -19,7 +21,7 @@ test('setTimeout', function (t) {
 	t.test('Crossing the maxInterval border with args', function (t) {
 		timers.maxInterval = 2;
 
-		timeout = timers.setTimeout(function (a, b) {
+		timers.setTimeout(function (a, b) {
 			timers.maxInterval = originalMaxInterval;
 
 			t.pass('timeout fired');
