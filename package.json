@@ -21,8 +21,10 @@
     "setTimeout",
     "setInterval",
     "timer",
+    "timeout",
     "interval",
     "timers",
+    "timeouts",
     "intervals"
   ],
   "author": "Ron Korving <rkorving@wizcorp.jp>",
