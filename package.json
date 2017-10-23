@@ -1,6 +1,6 @@
 {
   "name": "safe-timers",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Timers with near-infinite duration support",
   "main": "index.js",
   "directories": {
