@@ -114,3 +114,9 @@ exports.setInterval = function (cb, interval) {
 	timer.fireEvery(interval);
 	return timer;
 };
+
+exports.clearTimeout = exports.clearInterval = function (timer) {
+	if (timer && typeof timer.clear === 'function') {
+		timer.clear();
+	}
+};

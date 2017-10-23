@@ -145,5 +145,24 @@ test('setInterval', function (t) {
 		}, 10);
 	});
 
+	t.test('clearInterval', function (t) {
+		const interval = timers.setInterval(function () {
+			t.end('interval fired despite clearInterval()');
+		}, 0);
+
+		timers.clearInterval(interval);
+
+		setTimeout(function () {
+			t.pass('interval did not fire');
+			t.end();
+		}, 10);
+	});
+
+	t.test('clearInterval without timer', function (t) {
+		timers.clearInterval(null);
+		t.pass('no error was thrown');
+		t.end();
+	});
+
 	t.end();
 });
