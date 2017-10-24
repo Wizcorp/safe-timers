@@ -63,5 +63,24 @@ test('setTimeout', function (t) {
 		}, 10);
 	});
 
+	t.test('clearTimeout', function (t) {
+		const timeout = timers.setTimeout(function () {
+			t.end('timeout fired despite clearTimeout()');
+		}, 0);
+
+		timers.clearTimeout(timeout);
+
+		setTimeout(function () {
+			t.pass('timeout did not fire');
+			t.end();
+		}, 10);
+	});
+
+	t.test('clearTimeout without timer', function (t) {
+		timers.clearTimeout(null);
+		t.pass('no error was thrown');
+		t.end();
+	});
+
 	t.end();
 });
