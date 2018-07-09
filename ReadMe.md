@@ -25,10 +25,13 @@ variable that depends on state or user input, using Safe Timers is a good idea.
 
 ## API
 
-**Timer setTimeout(Function callback, number interval, mixed arg1, mixed arg2, ...)**
+### Timeout
 
-Calls `callback` after at least `interval` milliseconds have passed. All arguments passed after the `interval` will be
-passed to the callback once it gets invoked. Returns a `Timer` instance.
+There are two ways to create a new `Timeout` instance: `setTimeout` and `setTimeoutAt`.
+
+**Timeout setTimeout(Function callback, number interval, mixed arg1, mixed arg2, ...)**
+
+- Creates and returns a `Timeout` instance that will call `callback` after at least `interval` milliseconds have passed. All arguments passed after the `interval` will be passed to the callback once it gets invoked.
 
 ```js
 const setTimeout = require('safe-timers').setTimeout;
@@ -38,10 +41,9 @@ setTimeout(function (msg) {
 }, 5000, 'Hello world');
 ```
 
-**Timer setTimeoutAt(Function callback, number timestamp, mixed arg1, mixed arg2, ...)**
+**Timeout setTimeoutAt(Function callback, number timestamp, mixed arg1, mixed arg2, ...)**
 
-Calls `callback` when our clock reaches the given `timestamp` (in milliseconds). All arguments passed after the
-`interval` will be passed to the callback once it gets invoked. Returns a `Timer` instance.
+- Creates and returns a `Timeout` instance that will call `callback` when our clock reaches the given `timestamp` (in milliseconds). All arguments passed after the `interval` will be passed to the callback once it gets invoked.
 
 ```js
 const setTimeoutAt = require('safe-timers').setTimeoutAt;
@@ -51,10 +53,31 @@ setTimeoutAt(function (msg) {
 }, Date.now() + 5000, 'Hello world');
 ```
 
+To cancel a `Timeout`, use the instance's `clear` method, or pass it as an argument to `clearTimeout`:
+
+```js
+const st = require('safe-timers');
+const setTimeout = st.setTimeout;
+const clearTimeout = st.clearTimeout;
+
+let timeout1 = setTimeout(function (msg) {
+  console.log(msg);
+}, 5000, 'Hello world');
+let timeout2 = setTimeout(function (msg) {
+  console.log(msg);
+}, 5000, 'Hello world');
+
+timeout1.clear(); // this clears the timeout
+clearTimeout(timeout2); // this also clears the timeout!
+```
+
+### Interval
+
+To create an `Interval`, use the `setinterval` function:
+
 **Interval setInterval(Function callback, number interval, mixed arg1, mixed arg2, ...)**
 
-Calls `callback` after at least every `interval` milliseconds. All arguments passed after the `interval` will be passed
-to the callback when it gets invoked. Returns an `Interval` instance.
+- Creates and returns an `Interval` instance that will call `callback` after at least every `interval` milliseconds. All arguments passed after the `interval` will be passed to the callback when it gets invoked.
 
 ```js
 const setInterval = require('safe-timers').setInterval;
@@ -64,17 +87,20 @@ setInterval(function (msg) {
 }, 5000, 'Hello world');
 ```
 
-**timer.clear() / interval.clear()**
-
-The response from `safetimers.setTimeout[At]` and `safetimers.setInterval` are `Timer` and `Interval` objects
-respectively. To cancel a timer or interval, you can call `clear` on it.
+To cancel an `Interval`, use the instance's `clear` method, or pass it as an argument to `clearInterval`:
 
 ```js
-const setTimeout = require('safe-timers').setTimeout;
+const st = require('safe-timers');
+const setInterval = st.setInterval;
+const clearInterval = st.clearInterval;
 
-const timer = setTimeout(function (msg) {
-  console.log(msg); // this will never show
+const interval1 = setInterval(function (msg) {
+  console.log(msg);
+}, 5000, 'Hello world');
+const interval2 = setInterval(function (msg) {
+  console.log(msg);
 }, 5000, 'Hello world');
 
-timer.clear();
+interval1.clear(); // this clears the interval
+clearInterval(interval2); // this also clears the interval!
 ```
