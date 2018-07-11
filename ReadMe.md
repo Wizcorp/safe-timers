@@ -31,7 +31,7 @@ There are two ways to create a new `Timeout` instance: `setTimeout` and `setTime
 
 **Timeout setTimeout(Function callback, number interval, mixed arg1, mixed arg2, ...)**
 
-- Creates and returns a `Timeout` instance that will call `callback` after at least `interval` milliseconds have passed. All arguments passed after the `interval` will be passed to the callback once it gets invoked.
+Creates and returns a `Timeout` instance that will call `callback` after at least `interval` milliseconds have passed. All arguments passed after the `interval` will be passed to the callback once it gets invoked.
 
 ```js
 const setTimeout = require('safe-timers').setTimeout;
@@ -43,7 +43,7 @@ setTimeout(function (msg) {
 
 **Timeout setTimeoutAt(Function callback, number timestamp, mixed arg1, mixed arg2, ...)**
 
-- Creates and returns a `Timeout` instance that will call `callback` when our clock reaches the given `timestamp` (in milliseconds). All arguments passed after the `interval` will be passed to the callback once it gets invoked.
+Creates and returns a `Timeout` instance that will call `callback` when our clock reaches the given `timestamp` (in milliseconds). All arguments passed after the `interval` will be passed to the callback once it gets invoked.
 
 ```js
 const setTimeoutAt = require('safe-timers').setTimeoutAt;
@@ -73,11 +73,11 @@ clearTimeout(timeout2); // this also clears the timeout!
 
 ### Interval
 
-To create an `Interval`, use the `setinterval` function:
+To create an `Interval`, use the `setInterval` function:
 
 **Interval setInterval(Function callback, number interval, mixed arg1, mixed arg2, ...)**
 
-- Creates and returns an `Interval` instance that will call `callback` after at least every `interval` milliseconds. All arguments passed after the `interval` will be passed to the callback when it gets invoked.
+Creates and returns an `Interval` instance that will call `callback` after at least every `interval` milliseconds. All arguments passed after the `interval` will be passed to the callback when it gets invoked.
 
 ```js
 const setInterval = require('safe-timers').setInterval;
