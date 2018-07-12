@@ -53,7 +53,7 @@ setTimeoutAt(function (msg) {
 }, Date.now() + 5000, 'Hello world');
 ```
 
-**Timeout.clear() // clearTimeout(Timeout timeout)**
+**timeout.clear() / clearTimeout(Timeout timeout)**
 
 To cancel a `Timeout`, use the instance's `clear` method, or pass it as an argument to `clearTimeout`:
 
@@ -89,7 +89,7 @@ setInterval(function (msg) {
 }, 5000, 'Hello world');
 ```
 
-**Interval.clear() // clearInterval(Interval interval)**
+**interval.clear() / clearInterval(Interval interval)**
 
 To cancel an `Interval`, use the instance's `clear` method, or pass it as an argument to `clearInterval`:
 
