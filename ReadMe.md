@@ -43,7 +43,7 @@ setTimeout(function (msg) {
 
 **Timeout setTimeoutAt(Function callback, number timestamp, mixed arg1, mixed arg2, ...)**
 
-Creates and returns a `Timeout` instance that will call `callback` when our clock reaches the given `timestamp` (in milliseconds). All arguments passed after the `interval` will be passed to the callback once it gets invoked.
+Creates and returns a `Timeout` instance that will call `callback` when our clock reaches the given `timestamp` (in milliseconds). All arguments passed after the `timestamp` will be passed to the callback once it gets invoked.
 
 ```js
 const setTimeoutAt = require('safe-timers').setTimeoutAt;
